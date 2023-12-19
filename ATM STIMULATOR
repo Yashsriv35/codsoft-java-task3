@@ -1,0 +1,61 @@
+import java.util.*;
+public class ATM
+{
+    public static void main(String [] args)
+    {
+        Random rd = new Random();
+        int compnum = rd.nextInt(100);
+        Scanner sc = new Scanner(System.in);
+        int i=0;
+        System.out.println("check atm balance");
+        while(true)
+        {
+            System.out.print("the total balance:");
+            int usernum=sc.nextInt();
+            if(compnum==usernum)
+            {
+                System.out.println("this is your total amount");
+                System.out.println("enter pin");
+                int n = sc.nextInt();
+                if(n==1)
+                {
+                    compnum = rd.nextInt(100);
+                    i=0;
+                }
+                else
+                {
+                    System.out.println("amount shown.");
+                    break;
+                }
+            }
+            else if (compnum>usernum)
+            {
+                System.out.println("Think of a bigger number");
+                System.out.println("the total amount.");
+            }
+            else
+            {
+                System.out.println("pin is wrong.");
+                System.out.println("You have "+(10-i-1)+" more chances left.");
+            }
+            i++;
+            if(i==10)
+            {
+                System.out.println("You lost! The number is "+compnum);
+                System.out.println("enter atm pin again");
+                int n = sc.nextInt();
+                if(n==1)
+                {
+                    compnum = rd.nextInt(100);
+                    i=0;
+                }
+                else
+                {
+                System.out.println("atm amount.");
+                break;
+            }
+        }
+    }
+
+    }
+}
